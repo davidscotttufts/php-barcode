@@ -11,4 +11,7 @@ varying barcode heights, and one of four barcode formats. It does require
 the GD Library to be installed as a module in PHP.
 
 Usage:
-<img alt="testing" src="barcode.php?text=testing" />
+&lt;img alt="testing" src="barcode.php?text=testing" /&gt;
+
+Result:
+<img alt="testing" src="http://davidscotttufts.com/code/barcode.php?text=testing" />
