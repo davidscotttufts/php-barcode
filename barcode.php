@@ -9,11 +9,7 @@
  *	  <img src="/barcode.php?text=testing" alt="testing" />
  */
 	
-	// Get pararameters that are passed in through $_GET or set to the default value
-	$text = (isset($_GET["text"])?$_GET["text"]:"0");
-	$size = (isset($_GET["size"])?$_GET["size"]:"20");
-	$orientation = (isset($_GET["orientation"])?$_GET["orientation"]:"horizontal");
-	$code_type = (isset($_GET["codetype"])?$_GET["codetype"]:"code128");
+function barcode($filepath="",$text="0",$size="20",$orientation="horizontal",$code_type="code128") {
 	$code_string = "";
 
 	// Translate the $text into barcode the correct $code_type
@@ -122,8 +118,14 @@
 			imagefilledrectangle( $image, 0, $location, $img_width, $cur_size, ($position % 2 == 0 ? $white : $black) );
 		$location = $cur_size;
 	}
-	// Draw barcode to the screen
-	header ('Content-type: image/png');
-	imagepng($image);
-	imagedestroy($image);
+	// Draw barcode to the screen or save in a file
+	if($filepath=="") {
+		header ('Content-type: image/png');
+		imagepng($image);
+		imagedestroy($image);
+	} else {
+		imagepng($image,$filepath);
+		imagedestroy($image);		
+	}
+}
 ?>
