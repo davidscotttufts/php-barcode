@@ -14,6 +14,8 @@
 	$size = (isset($_GET["size"])?$_GET["size"]:"20");
 	$orientation = (isset($_GET["orientation"])?$_GET["orientation"]:"horizontal");
 	$code_type = (isset($_GET["codetype"])?$_GET["codetype"]:"code128");
+    // "stretch" increases the thickness of each bar (as opposed to "size" which changes the bar heights)
+    $stretch = (isset($_GET["stretch"])?$_GET["scale"]:1);
 	$code_string = "";
 
 	// Translate the $text into barcode the correct $code_type
@@ -100,11 +102,11 @@
 		$code_length = $code_length + (integer)(substr($code_string,($i-1),1));
 
 	if ( strtolower($orientation) == "horizontal" ) {
-		$img_width = $code_length;
+		$img_width = $stretch * $code_length;
 		$img_height = $size;
 	} else {
 		$img_width = $size;
-		$img_height = $code_length;
+		$img_height = $stretch * $code_length;
 	}
 
 	$image = imagecreate($img_width, $img_height);
@@ -115,7 +117,7 @@
 
 	$location = 10;
 	for ( $position = 1 ; $position <= strlen($code_string); $position++ ) {
-		$cur_size = $location + ( substr($code_string, ($position-1), 1) );
+		$cur_size = $location + $stretch * ( substr($code_string, ($position-1), 1) );
 		if ( strtolower($orientation) == "horizontal" )
 			imagefilledrectangle( $image, $location, 0, $cur_size, $img_height, ($position % 2 == 0 ? $white : $black) );
 		else
