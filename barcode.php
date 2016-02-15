@@ -15,7 +15,7 @@
 	$orientation = (isset($_GET["orientation"])?$_GET["orientation"]:"horizontal");
 	$code_type = (isset($_GET["codetype"])?$_GET["codetype"]:"code128");
     // "stretch" increases the thickness of each bar (as opposed to "size" which changes the bar heights)
-    $stretch = (isset($_GET["stretch"])?$_GET["scale"]:1);
+    $stretch = (isset($_GET["stretch"])?$_GET["stretch"]:1);
 	$code_string = "";
 
 	// Translate the $text into barcode the correct $code_type
