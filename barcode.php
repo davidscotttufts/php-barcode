@@ -1,21 +1,25 @@
 <?php
 
 /*
- *  Author:  David S. Tufts
- *  Company: Rocketwood.LLC
- *	  www.rocketwood.com
+ *  Author	David S. Tufts
+ *  Company	davidscotttufts.com
+ *	  
  *  Date:	05/25/2003
- *  Usage:
- *	  <img src="/barcode.php?text=testing" alt="testing" />
+ *  Usage:	<img src="/barcode.php?text=testing" alt="testing" />
  */
 
-	// Get pararameters that are passed in through $_GET or set to the default value
-	$text = (isset($_GET["text"])?$_GET["text"]:"0");
-	$size = (isset($_GET["size"])?$_GET["size"]:"20");
-	$orientation = (isset($_GET["orientation"])?$_GET["orientation"]:"horizontal");
-	$code_type = (isset($_GET["codetype"])?$_GET["codetype"]:"code128");
-	$code_string = "";
+// For demonstration purposes, get pararameters that are passed in through $_GET or set to the default value
+$filepath = (isset($_GET["filepath"])?$_GET["filepath"]:"");
+$text = (isset($_GET["text"])?$_GET["text"]:"0");
+$size = (isset($_GET["size"])?$_GET["size"]:"20");
+$orientation = (isset($_GET["orientation"])?$_GET["orientation"]:"horizontal");
+$code_type = (isset($_GET["codetype"])?$_GET["codetype"]:"code128");
 
+// This function call can be copied into your project and can be made from anywhere in your code
+barcode( $filepath, $text, $size, $orientation, $code_type );
+
+function barcode( $filepath="", $text="0", $size="20", $orientation="horizontal", $code_type="code128" ) {
+	$code_string = "";
 	// Translate the $text into barcode the correct $code_type
 	if ( in_array(strtolower($code_type), array("code128", "code128b")) ) {
 		$chksum = 104;
@@ -96,7 +100,8 @@
 
 	// Pad the edges of the barcode
 	$code_length = 20;
-    $text_height = 30;
+	$text_height = 30;
+	
 	for ( $i=1; $i <= strlen($code_string); $i++ ){
 		$code_length = $code_length + (integer)(substr($code_string,($i-1),1));
         }
@@ -114,7 +119,7 @@
 	$white = imagecolorallocate ($image, 255, 255, 255);
 
 	imagefill( $image, 0, 0, $white );
-    imagestring($image, 5, 31, $img_height, $text, $black );
+	imagestring($image, 5, 31, $img_height, $text, $black );
 
 	$location = 10;
 	for ( $position = 1 ; $position <= strlen($code_string); $position++ ) {
@@ -125,11 +130,16 @@
 			imagefilledrectangle( $image, 0, $location, $img_width, $cur_size, ($position % 2 == 0 ? $white : $black) );
 		$location = $cur_size;
 	}
-
-	// Draw barcode to the screen
-	header ('Content-type: image/png');
-	imagepng($image);
-	imagedestroy($image);
-
+	
+	// Draw barcode to the screen or save in a file
+	if ( $filepath=="" ) {
+		header ('Content-type: image/png');
+		imagepng($image);
+		imagedestroy($image);
+	} else {
+		imagepng($image,$filepath);
+		imagedestroy($image);		
+	}
+}
 
 ?>
