@@ -14,11 +14,12 @@ $text = (isset($_GET["text"])?$_GET["text"]:"0");
 $size = (isset($_GET["size"])?$_GET["size"]:"20");
 $orientation = (isset($_GET["orientation"])?$_GET["orientation"]:"horizontal");
 $code_type = (isset($_GET["codetype"])?$_GET["codetype"]:"code128");
+$print = (isset($_GET["print"])&&$_GET["print"]=='true'?true:false);
 
 // This function call can be copied into your project and can be made from anywhere in your code
-barcode( $filepath, $text, $size, $orientation, $code_type );
+barcode( $filepath, $text, $size, $orientation, $code_type, $print );
 
-function barcode( $filepath="", $text="0", $size="20", $orientation="horizontal", $code_type="code128" ) {
+function barcode( $filepath="", $text="0", $size="20", $orientation="horizontal", $code_type="code128", $print=false ) {
 	$code_string = "";
 	// Translate the $text into barcode the correct $code_type
 	if ( in_array(strtolower($code_type), array("code128", "code128b")) ) {
@@ -100,7 +101,11 @@ function barcode( $filepath="", $text="0", $size="20", $orientation="horizontal"
 
 	// Pad the edges of the barcode
 	$code_length = 20;
-	$text_height = 30;
+	if ($print) {
+		$text_height = 30;
+	} else {
+		$text_height = 0;
+	}
 	
 	for ( $i=1; $i <= strlen($code_string); $i++ ){
 		$code_length = $code_length + (integer)(substr($code_string,($i-1),1));
@@ -114,12 +119,14 @@ function barcode( $filepath="", $text="0", $size="20", $orientation="horizontal"
 		$img_height = $code_length;
 	}
 
-	$image = imagecreate($img_width, $img_height+$text_height);
+	$image = imagecreate($img_width, $img_height + $text_height);
 	$black = imagecolorallocate ($image, 0, 0, 0);
 	$white = imagecolorallocate ($image, 255, 255, 255);
 
 	imagefill( $image, 0, 0, $white );
-	imagestring($image, 5, 31, $img_height, $text, $black );
+	if ( $print ) {
+		imagestring($image, 5, 31, $img_height, $text, $black );
+	}
 
 	$location = 10;
 	for ( $position = 1 ; $position <= strlen($code_string); $position++ ) {
