@@ -15,11 +15,12 @@ $size = (isset($_GET["size"])?$_GET["size"]:"20");
 $orientation = (isset($_GET["orientation"])?$_GET["orientation"]:"horizontal");
 $code_type = (isset($_GET["codetype"])?$_GET["codetype"]:"code128");
 $print = (isset($_GET["print"])&&$_GET["print"]=='true'?true:false);
+$sizefactor = (isset($_GET["sizefactor"])?$_GET["sizefactor"]:"1");
 
 // This function call can be copied into your project and can be made from anywhere in your code
-barcode( $filepath, $text, $size, $orientation, $code_type, $print );
+barcode( $filepath, $text, $size, $orientation, $code_type, $print, $sizefactor );
 
-function barcode( $filepath="", $text="0", $size="20", $orientation="horizontal", $code_type="code128", $print=false ) {
+function barcode( $filepath="", $text="0", $size="20", $orientation="horizontal", $code_type="code128", $print=false, $SizeFactor=1 ) {
 	$code_string = "";
 	// Translate the $text into barcode the correct $code_type
 	if ( in_array(strtolower($code_type), array("code128", "code128b")) ) {
@@ -112,11 +113,11 @@ function barcode( $filepath="", $text="0", $size="20", $orientation="horizontal"
         }
 
 	if ( strtolower($orientation) == "horizontal" ) {
-		$img_width = $code_length;
+		$img_width = $code_length*$SizeFactor;
 		$img_height = $size;
 	} else {
 		$img_width = $size;
-		$img_height = $code_length;
+		$img_height = $code_length*$SizeFactor;
 	}
 
 	$image = imagecreate($img_width, $img_height + $text_height);
@@ -132,9 +133,9 @@ function barcode( $filepath="", $text="0", $size="20", $orientation="horizontal"
 	for ( $position = 1 ; $position <= strlen($code_string); $position++ ) {
 		$cur_size = $location + ( substr($code_string, ($position-1), 1) );
 		if ( strtolower($orientation) == "horizontal" )
-			imagefilledrectangle( $image, $location, 0, $cur_size, $img_height, ($position % 2 == 0 ? $white : $black) );
+			imagefilledrectangle( $image, $location*$SizeFactor, 0, $cur_size*$SizeFactor, $img_height, ($position % 2 == 0 ? $white : $black) );
 		else
-			imagefilledrectangle( $image, 0, $location, $img_width, $cur_size, ($position % 2 == 0 ? $white : $black) );
+			imagefilledrectangle( $image, 0, $location*$SizeFactor, $img_width, $cur_size*$SizeFactor, ($position % 2 == 0 ? $white : $black) );
 		$location = $cur_size;
 	}
 	
