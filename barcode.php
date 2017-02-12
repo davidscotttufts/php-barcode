@@ -62,7 +62,7 @@ function barcode( $filepath="", $text="0", $size="20", $orientation="horizontal"
 			$code_string .= $code_array[substr( $upper_text, ($X-1), 1)] . "1";
 		}
 
-		$code_string = "1211212111" . $code_string . "121121211";
+		$code_string = "1211212111" . $code_string . "1211212111";
 	} elseif ( strtolower($code_type) == "code25" ) {
 		$code_array1 = array("1","2","3","4","5","6","7","8","9","0");
 		$code_array2 = array("3-1-1-1-3","1-3-1-1-3","3-3-1-1-1","1-1-3-1-3","3-1-3-1-1","1-3-3-1-1","1-1-1-3-3","3-1-1-3-1","1-3-1-3-1","1-1-3-3-1");
