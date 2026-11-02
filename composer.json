@@ -1,0 +1,53 @@
+{
+    "name": "davidscotttufts/php-barcode",
+    "description": "Generate Code 128, Code 39, Interleaved 2 of 5, Codabar, EAN-13, EAN-8 and UPC-A barcodes as SVG, PNG, JPEG, GIF, WebP or text.",
+    "type": "library",
+    "license": "MIT",
+    "keywords": ["barcode", "code128", "code39", "ean13", "upc", "codabar", "itf", "svg", "png", "gd"],
+    "homepage": "https://github.com/davidscotttufts/php-barcode",
+    "authors": [
+        {
+            "name": "David S. Tufts",
+            "homepage": "http://davidscotttufts.com"
+        }
+    ],
+    "require": {
+        "php": ">=8.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11.5",
+        "phpstan/phpstan": "^2.1",
+        "friendsofphp/php-cs-fixer": "^3.64"
+    },
+    "suggest": {
+        "ext-gd": "Required for PNG, JPEG, GIF and WebP output (SVG and text output need no extensions).",
+        "ext-mbstring": "Improves text centering for multi-byte input in the text renderer."
+    },
+    "autoload": {
+        "psr-4": {
+            "PhpBarcode\\": "src/"
+        },
+        "files": [
+            "src/functions.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "PhpBarcode\\Tests\\": "tests/"
+        }
+    },
+    "bin": [
+        "bin/barcode"
+    ],
+    "scripts": {
+        "test": "phpunit",
+        "analyse": "phpstan analyse",
+        "cs": "php-cs-fixer fix --dry-run --diff",
+        "cs:fix": "php-cs-fixer fix",
+        "check": ["@cs", "@analyse", "@test"]
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "stable"
+}
