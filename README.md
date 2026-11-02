@@ -516,6 +516,6 @@ To run the decode tests locally, `pip install zxing-cpp pillow` and set `BARCODE
 
 ## Credits and licence
 
-Created by [David S. Tufts](http://davidscotttufts.com). MIT licensed; see [LICENSE](LICENSE).
+Created by [David S. Tufts](https://davidtufts.me). MIT licensed; see [LICENSE](LICENSE).
 
 The tables and algorithms follow the ISO/IEC, GS1, USPS and postal-operator specifications. Where an open-source implementation helped clarify a detail, it's credited in the relevant class: [Zint](https://zint.org.uk/) (BSD-3-Clause), [zxing-cpp](https://github.com/zxing-cpp/zxing-cpp) (Apache-2.0), [BWIPP](https://github.com/bwipp/postscriptbarcode) (MIT) and [Nayuki's QR Code generator](https://www.nayuki.io/page/qr-code-generator-library) (MIT). The GS1 Application Identifier data comes from the [GS1 Syntax Dictionary](https://github.com/gs1/gs1-syntax-dictionary) (Apache-2.0).
