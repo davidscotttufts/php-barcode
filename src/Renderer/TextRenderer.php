@@ -46,10 +46,11 @@ final class TextRenderer implements RendererInterface
             ? array_map(static fn(string $row): string => strtr($row, ['1' => '█', '0' => ' ']), $grid)
             : self::halfBlocks($grid);
 
-        if ($options->showText && $options->orientation === Orientation::Horizontal && trim($symbol->text()) !== '') {
+        $caption = $options->caption ?? ($options->showText ? $symbol->text() : '');
+        if ($options->orientation === Orientation::Horizontal && trim($caption) !== '') {
             $width = strlen($grid[0]);
-            $length = function_exists('mb_strlen') ? mb_strlen($symbol->text()) : strlen($symbol->text());
-            $lines[] = str_repeat(' ', max(0, intdiv($width - $length, 2))) . $symbol->text();
+            $length = function_exists('mb_strlen') ? mb_strlen($caption) : strlen($caption);
+            $lines[] = str_repeat(' ', max(0, intdiv($width - $length, 2))) . $caption;
         }
 
         return implode("\n", $lines) . "\n";

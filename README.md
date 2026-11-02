@@ -237,6 +237,12 @@ Barcode::code128('ABC-123')
 ```
 
 - Linear codes print their data underneath by default; 2D codes don't. Use `withoutText()` or `withText()` to change that.
+- To print something else, such as a product name or "Scan to pay", use `withCaption()`. It works on every type, 2D codes included:
+
+  ```php
+  Barcode::qrCode('https://example.com/pay')->withCaption('Scan to pay');
+  Barcode::ean13('400638133393')->withCaption('Organic Oat Milk 1L');
+  ```
 - EAN and UPC codes use the classic retail layout, with digits between the guard bars and add-ons labelled above.
 - A background of `'#ffffff00'` (fully transparent) gives a transparent PNG or SVG.
 - PNG output uses GD's built-in font. For a nicer one, pass a TrueType file through `RenderOptions::withFontFile('/path/to/font.ttf')`.
@@ -441,6 +447,7 @@ vendor/bin/barcode --help
 | `sizefactor` | Module width in px | `1` |
 | `orientation` | `horizontal` or `vertical` | `horizontal` |
 | `print` | `true` to print the text | `false` |
+| `caption` | Custom text to print instead of the data | |
 | `format` | `png`, `svg`, `jpeg`, `gif`, `webp`, `pdf`, `eps` | `png` |
 | `fg`, `bg` | Hex colours | `000`, `fff` |
 

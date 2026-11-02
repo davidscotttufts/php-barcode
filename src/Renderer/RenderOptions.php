@@ -30,6 +30,8 @@ final readonly class RenderOptions
      * @param FinderShape $finderShape Shape of 2D finder patterns ("eyes").
      * @param Gradient|null $gradient  Gradient fill for the dark modules, overriding $foreground.
      * @param Logo|null   $logo        Image centered on a 2D symbol.
+     * @param string|null $caption     Custom text printed under the symbol instead of the encoded data
+     *                                 (shown even on 2D codes). null prints the data, as controlled by $showText.
      * @param int|null    $dpi         Output resolution. Sets the physical size of SVG, PDF and EPS output and the
      *                                 resolution stored in raster files. null means 96 DPI (CSS pixels).
      */
@@ -49,6 +51,7 @@ final readonly class RenderOptions
         public ?Gradient $gradient = null,
         public ?Logo $logo = null,
         public ?int $dpi = null,
+        public ?string $caption = null,
     ) {
         if ($moduleWidth <= 0) {
             throw new \InvalidArgumentException('The module width must be greater than zero.');
@@ -121,7 +124,7 @@ final readonly class RenderOptions
 
     public function withoutText(): self
     {
-        return $this->with(showText: false);
+        return $this->with(showText: false, caption: null);
     }
 
     public function withTextGap(float $textGap): self
@@ -165,6 +168,14 @@ final readonly class RenderOptions
     public function withLogo(?Logo $logo): self
     {
         return $this->with(logo: $logo);
+    }
+
+    /**
+     * Prints custom text under the symbol instead of the encoded data; null restores the default.
+     */
+    public function withCaption(?string $caption): self
+    {
+        return $this->with(caption: $caption);
     }
 
     public function withDpi(?int $dpi): self
