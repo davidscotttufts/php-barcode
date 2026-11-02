@@ -1,0 +1,118 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+use PhpBarcode\Barcode;
+use PhpBarcode\BarcodeType;
+use PhpBarcode\Exception\BarcodeException;
+use PhpBarcode\Renderer\Orientation;
+use PhpBarcode\Renderer\OutputFormat;
+use PhpBarcode\Renderer\RenderOptions;
+
+foreach ([__DIR__ . '/../vendor/autoload.php', __DIR__ . '/../../../autoload.php', __DIR__ . '/../src/autoload.php'] as $autoload) {
+    if (is_file($autoload)) {
+        require $autoload;
+        break;
+    }
+}
+
+$types = implode(', ', array_column(BarcodeType::cases(), 'value'));
+$usage = <<<USAGE
+    Usage: barcode <type> <data> [options]
+
+    Types: {$types}
+
+    Options:
+      -o, --output <file>    Write to a file; the format follows the extension.
+                             Without -o, the barcode is drawn in the terminal.
+      -f, --format <name>    svg, png, jpeg, gif, webp or text.
+          --height <px>      Bar height (default 60).
+          --module <px>      Width of the narrowest bar (default 2).
+          --quiet <modules>  Quiet zone on each side.
+          --fg <hex>         Bar color (default 000).
+          --bg <hex>         Background color (default fff).
+          --vertical         Rotate 90° clockwise.
+          --no-text          Don't print the data under the bars.
+      -h, --help             Show this help.
+
+    Examples:
+      barcode code128 "Hello, world"
+      barcode ean13 400638133393 -o product.svg
+      barcode code39 ABC-123 -o label.png --height 100 --module 3
+
+    USAGE;
+
+// getopt() stops at the first positional argument, so options are parsed by hand
+// to allow them anywhere: `barcode code128 ABC --height 80`.
+$valueOptions = ['o' => 'output', 'output' => 'output', 'f' => 'format', 'format' => 'format',
+    'height' => 'height', 'module' => 'module', 'quiet' => 'quiet', 'fg' => 'fg', 'bg' => 'bg'];
+$flagOptions = ['vertical' => 'vertical', 'no-text' => 'no-text', 'h' => 'help', 'help' => 'help'];
+
+$options = [];
+$arguments = [];
+/** @var list<string> $argv */
+$argv = is_array($_SERVER['argv'] ?? null) ? array_values(array_filter($_SERVER['argv'], 'is_string')) : [];
+$tokens = array_slice($argv, 1);
+while ($tokens !== []) {
+    $token = array_shift($tokens);
+    if ($token === '--') {
+        array_push($arguments, ...$tokens);
+        break;
+    }
+    if (preg_match('/^--?([a-z-]+)(?:=(.*))?$/', $token, $match) !== 1) {
+        $arguments[] = $token;
+        continue;
+    }
+    $name = $match[1];
+    if (isset($flagOptions[$name])) {
+        $options[$flagOptions[$name]] = true;
+    } elseif (isset($valueOptions[$name])) {
+        $value = $match[2] ?? array_shift($tokens);
+        if ($value === null) {
+            fwrite(STDERR, "Error: option {$token} needs a value.\n");
+            exit(64);
+        }
+        $options[$valueOptions[$name]] = $value;
+    } else {
+        fwrite(STDERR, "Error: unknown option {$token}.\n\n{$usage}");
+        exit(64);
+    }
+}
+
+if (isset($options['help'])) {
+    echo $usage;
+    exit(0);
+}
+if (count($arguments) !== 2) {
+    fwrite(STDERR, $usage);
+    exit(64);
+}
+
+[$type, $data] = $arguments;
+$opt = static fn(string $name): ?string => is_string($options[$name] ?? null) ? $options[$name] : null;
+
+try {
+    $render = new RenderOptions(
+        moduleWidth: (float) ($opt('module') ?? 2),
+        barHeight: (float) ($opt('height') ?? 60),
+        quietZone: $opt('quiet') === null ? null : (int) $opt('quiet'),
+        showText: !isset($options['no-text']),
+        orientation: isset($options['vertical']) ? Orientation::Vertical : Orientation::Horizontal,
+    );
+    $render = $render->withColors($opt('fg') ?? '000', $opt('bg') ?? 'fff');
+
+    $barcode = Barcode::of($type, $data, $render);
+    $output = $opt('output');
+    $format = $opt('format');
+
+    if ($output !== null) {
+        $barcode->save($output, $format);
+        fwrite(STDERR, sprintf("Wrote %s barcode to %s\n", $barcode->symbol->symbology(), $output));
+    } else {
+        echo $barcode->render($format ?? OutputFormat::Text);
+    }
+} catch (BarcodeException|InvalidArgumentException $e) {
+    fwrite(STDERR, 'Error: ' . $e->getMessage() . "\n");
+    exit(1);
+}

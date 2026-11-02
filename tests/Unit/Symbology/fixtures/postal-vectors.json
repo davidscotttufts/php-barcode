@@ -1,0 +1,368 @@
+[
+ {
+  "type": "POSTNET",
+  "data": "12345678901",
+  "states": "FTTTFFTTFTFTTFFTTFTTFTFTFTTFFTTFTTTFFTTFTFTFTTFFTTTTTTFFTFTTFF",
+  "source": "Zint test suite (BSD-3-Clause): USPS Publication 25 (2003) Exhibit 4-1"
+ },
+ {
+  "type": "POSTNET",
+  "data": "555551237",
+  "states": "FTFTFTTFTFTTFTFTTFTFTTFTFTTTTFFTTFTFTTFFTFTTTFTTFTFF",
+  "source": "Zint test suite (BSD-3-Clause): Verified manually against tec-it"
+ },
+ {
+  "type": "RM4SCC",
+  "data": "BX11LT1A",
+  "states": "ADFTAFATDTDAFTDAFFTTFFDATTDAFDADAATDFF",
+  "source": "Zint test suite (BSD-3-Clause): Verified manually against tec-it"
+ },
+ {
+  "type": "RM4SCC",
+  "data": "W1J0TR01",
+  "states": "AAFDTTDAFADTFTTFFFDATFTADTTFFTDAFAFDTF",
+  "source": "Zint test suite (BSD-3-Clause): Verified manually against tec-it"
+ },
+ {
+  "type": "RM4SCC",
+  "data": "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+  "states": "ATTFFTDAFTDFADTAFDTFADDAATADFTFTFTFDADATFDADADFTATAFDTFADTFFTDAADDAFTDFATATDFADTFADDAFTTFFTDAFDTAATFDADADADFTFTADFTFTFDATAADDAFTDAFDTFATDFADTFFTTFFTTF",
+  "source": "Zint test suite (BSD-3-Clause): Verified manually against tec-it"
+ },
+ {
+  "type": "JAPANPOST",
+  "data": "15400233-16-4-205",
+  "states": "FDFFTFTFFADFTTFTTFDADFADFATFTFFTDAFTFTFADTFTFDAFTTFTFTDATDATDADAFDF",
+  "source": "Zint test suite (BSD-3-Clause): Zip/Barcode Manual p.6 1st example; verified manually against tec-it"
+ },
+ {
+  "type": "JAPANPOST",
+  "data": "350110622-1A308",
+  "states": "FDDFAFTFFTTFFTFFTFTTDAFFDAFDATFTFFTDATFTTDFAFTTADFTDATDATDATDAFTFDF",
+  "source": "Zint test suite (BSD-3-Clause): Zip/Barcode Manual p.6 2nd example; verified manually against tec-it"
+ },
+ {
+  "type": "JAPANPOST",
+  "data": "12345671-2-3",
+  "states": "FDFFTFDADFAFADFTFDAFAFDFFTTFTFDATFTDFATDATDATDATDATDATDATDATDAFTFDF",
+  "source": "Zint test suite (BSD-3-Clause): Verified manually against tec-it"
+ },
+ {
+  "type": "JAPANPOST",
+  "data": "1234567BCDEFG",
+  "states": "FDFFTFDADFAFADFTFDAFAFDDATFFTDATFDADATDFADATFADDATFTFDATDAFTDAFADDF",
+  "source": "Zint test suite (BSD-3-Clause): Verified manually against tec-it"
+ },
+ {
+  "type": "JAPANPOST",
+  "data": "8901234HIJKLM",
+  "states": "FDADFTFFFTTFFTFDADFAFADDATAFDDATADFDATTFFDTAFTTDTAFFTDTAFDATDAATDDF",
+  "source": "Zint test suite (BSD-3-Clause): Verified manually against tec-it"
+ },
+ {
+  "type": "JAPANPOST",
+  "data": "0987654NOPQRS",
+  "states": "FDFTTTFFADFAFDDAFFTFFADDTADFADTAFADDTAFTFDTADAFDTAAFDDTAADFTDAADTDF",
+  "source": "Zint test suite (BSD-3-Clause): Verified manually against tec-it"
+ },
+ {
+  "type": "JAPANPOST",
+  "data": "3210987TUVWXY",
+  "states": "FDDFAFDAFFTFTTTFFADFAFDDTATFFADTFTTADTFFTADTFDAADTDFAADTFADTDADTADF",
+  "source": "Zint test suite (BSD-3-Clause): Verified manually against tec-it"
+ },
+ {
+  "type": "PLANET",
+  "data": "4012345235636",
+  "states": "FFTFFTTTFFFFFFTTFFTFTFFTTFFTFFTFTFTFFFTFTFFTTFFTFTFFTTFFFFTTFFTTFFFTTFFF",
+  "source": "Zint test suite (BSD-3-Clause): USPS Publication 197 (2004) Exhibit 4; verified manually against tec-it"
+ },
+ {
+  "type": "PLANET",
+  "data": "40123452356",
+  "states": "FFTFFTTTFFFFFFTTFFTFTFFTTFFTFFTFTFTFFFTFTFFTTFFTFTFFTTFFFTFTFF",
+  "source": "Zint test suite (BSD-3-Clause): Verified manually against tec-it"
+ },
+ {
+  "type": "PLANET",
+  "data": "5020140235635",
+  "states": "FFTFTFTTFFFFFTFTTTFFFFFFTTFTFFTTTFFFFFTFTFFTTFFTFTFFTTFFFFTTFFTFTFFTFFTF",
+  "source": "Zint test suite (BSD-3-Clause): USPS Publication 197 (2004) Exhibit 6; verified manually against tec-it"
+ },
+ {
+  "type": "KIX",
+  "data": "2500GG30250",
+  "states": "TDFADDAATTFFTTFFDAFTDAFTDTAFTTFFTDFADDAATTFF",
+  "source": "Zint test suite (BSD-3-Clause): PostNL Handleiding KIX code Section 2.1 Example 1"
+ },
+ {
+  "type": "KIX",
+  "data": "2130VA80430",
+  "states": "TDFATDAFDTAFTTFFAFTDDADATFDATTFFDTFADTAFTTFF",
+  "source": "Zint test suite (BSD-3-Clause): PostNL Handleiding KIX code Section 2.1 Example 2"
+ },
+ {
+  "type": "KIX",
+  "data": "1231GF156X2",
+  "states": "TDAFTDFADTAFTDAFDAFTDAADTDAFDDAATADFFATDTDFA",
+  "source": "Zint test suite (BSD-3-Clause): PostNL Handleiding KIX code Section 2.1 Example 3"
+ },
+ {
+  "type": "KIX",
+  "data": "1231FZ13Xhs",
+  "states": "TDAFTDFADTAFTDAFDAADFFTTTDAFDTAFFATDDFATFTFT",
+  "source": "Zint test suite (BSD-3-Clause): PostNL Handleiding KIX code Section 2.1 Example 4"
+ },
+ {
+  "type": "KIX",
+  "data": "1234567890ABCDEFGH",
+  "states": "TDAFTDFADTAFDTFADDAATADFTFTFTFDADATFTTFFDADADFTATAFDTFADTFFTDAADDAFTDFAT",
+  "source": "Zint test suite (BSD-3-Clause): Verified manually against tec-it"
+ },
+ {
+  "type": "KIX",
+  "data": "IJKLMNOPQRSTUVWXYZ",
+  "states": "ATDFADTFADDAFTTFFTDAFDTAATFDADADADFTFTADFTFTFDATAADDAFTDAFDTFATDFADTFFTT",
+  "source": "Zint test suite (BSD-3-Clause): Verified manually against tec-it"
+ },
+ {
+  "type": "AUSPOST",
+  "data": "96184209",
+  "states": "ATFAFATFDFFADDAAFDFFTFTDFFTDADADTADAT",
+  "source": "Zint test suite (BSD-3-Clause): AusPost Tech Specs Diagram 1; verified manually against TEC-IT"
+ },
+ {
+  "type": "AUSPOST",
+  "data": "39549554",
+  "states": "ATFAFAAFTFADAATFADADAATTADAFATAATDDAT",
+  "source": "Zint test suite (BSD-3-Clause): AusPost Guide Figure 3, same; verified manually against TEC-IT"
+ },
+ {
+  "type": "AUSPOST",
+  "data": "56439111ABA 9",
+  "states": "ATADTFADDFAAAFTFFAFAFAFFFFFAFFFFFTTDDTTAFADAFFFTTAAT",
+  "source": "Zint test suite (BSD-3-Clause): AusPost Guide Figure 4, same; verified manually against TEC-IT"
+ },
+ {
+  "type": "AUSPOST",
+  "data": "3221132412345678",
+  "states": "ATADTFAFFDFDFAFAAFFDAAFAFDAFAAADDFDADDAADTDDDFTDTTAT",
+  "source": "Zint test suite (BSD-3-Clause): 59 Custom 2 N encoding"
+ },
+ {
+  "type": "AUSPOST",
+  "data": "32211324Ab #2",
+  "states": "ATADTFAFFDFDFAFAAFFDAAFFFFTFFFTFATTFATADTDDFATDATAAT",
+  "source": "Zint test suite (BSD-3-Clause): 59 Custom 2 C encoding"
+ },
+ {
+  "type": "AUSPOST",
+  "data": "32211324123456789012345",
+  "states": "ATDFFDAFFDFDFAFAAFFDAAFAFDAFAAADDFDADDTFFFFAFDAFAAADTADDATFAFFFTFAT",
+  "source": "Zint test suite (BSD-3-Clause): 62 Custom 3 N encoding"
+ },
+ {
+  "type": "AUSPOST",
+  "data": "32211324aBCd#F hIz",
+  "states": "ATDFFDAFFDFDFAFAAFFDAAFDTFFAFFDFTDFATFADFFTADTFDDTTTTFDAADFFAATTDAT",
+  "source": "Zint test suite (BSD-3-Clause): 62 Custom 3 C encoding"
+ },
+ {
+  "type": "AUSPOST",
+  "data": "12345678DEGHJKLMNO",
+  "states": "ATDFFDFAFDAFAAADDFDADDFAFFAAFDFFDAAFFAFAAFDAAFAAAAADTTFFTTFTDDTDFAT",
+  "source": "Zint test suite (BSD-3-Clause): 62 Custom 3 C encoding GDSET 1st part"
+ },
+ {
+  "type": "AUSPOST",
+  "data": "23456789PQRSTUVWXY",
+  "states": "ATDFFDFDAFAAADDFDADDTFADFADAADDDFFDFADFDDAFDAADADDDFTAADAFAAFDFFAAT",
+  "source": "Zint test suite (BSD-3-Clause): 62 Custom 3 C encoding GDSET 2nd part"
+ },
+ {
+  "type": "AUSPOST",
+  "data": "34567890Zcefgijklm",
+  "states": "ATDFFDAFAAADDFDADDTFFFDDAFTAFTTAFTAATATFATAATDATTDFTTFFTATDDFFDAFAT",
+  "source": "Zint test suite (BSD-3-Clause): 62 Custom 3 C encoding GDSET 3rd part"
+ },
+ {
+  "type": "AUSPOST",
+  "data": "12345678lnopqrstuv",
+  "states": "ATDFFDFAFDAFAAADDFDADDATTDATDDTDTFDTADTDDTTTFTTATTDTTDAATFFAFTDTAAT",
+  "source": "Zint test suite (BSD-3-Clause): 62 Custom 3 C encoding GDSET 4th part"
+ },
+ {
+  "type": "AUSPOST",
+  "data": "09876543wxy# ",
+  "states": "ATADTFFFTFDDDADFADAAAFTTFTTATTDFATFFTTADFTDTTDAFTAAT",
+  "source": "Zint test suite (BSD-3-Clause): 59 Custom 2 C encoding GDSET 5th part"
+ },
+ {
+  "type": "AUSPOST",
+  "data": "00000000",
+  "states": "ATFFFFFFFFFFFFFFFFFFFFTDFDDATTFTAFTAT",
+  "source": "Zint test suite (BSD-3-Clause): Null (DPID all-zeros) length 8; BWIPP: not supported yet"
+ },
+ {
+  "type": "AUSPOST",
+  "data": "00000000ABC 9",
+  "states": "ATFFFFFFFFFFFFFFFFFFFFFFFFFAFFDFFTTDDTFDDTFDAFTTTTAT",
+  "source": "Zint test suite (BSD-3-Clause): Null length 13; BWIPP: not supported yet"
+ },
+ {
+  "type": "AUSPOST",
+  "data": "0000000012345678",
+  "states": "ATFFFFFFFFFFFFFFFFFFFFFAFDAFAAADDFDADDTFDFFDDFFFDDAT",
+  "source": "Zint test suite (BSD-3-Clause): Null length 16; BWIPP: not supported yet"
+ },
+ {
+  "type": "AUSPOST",
+  "data": "00000000aBCd#F hIz",
+  "states": "ATFFFFFFFFFFFFFFFFFFFFFDTFFAFFDFTDFATFADFFTADTFDDTTTTTFAADTTTTTTTAT",
+  "source": "Zint test suite (BSD-3-Clause): Null length 18; BWIPP: not supported yet"
+ },
+ {
+  "type": "AUSPOST",
+  "data": "00000000123456789012345",
+  "states": "ATFFFFFFFFFFFFFFFFFFFFFAFDAFAAADDFDADDTFFFFAFDAFAAADTDFDATTDDDFTAAT",
+  "source": "Zint test suite (BSD-3-Clause): Null length 23; BWIPP: not supported yet"
+ },
+ {
+  "type": "AUSREPLY",
+  "data": "12345678",
+  "states": "ATAAADFAFDAFAAADDFDADDTTATDADDDTFDAAT",
+  "source": "Zint test suite (BSD-3-Clause): Verified manually against TEC-IT"
+ },
+ {
+  "type": "AUSROUTE",
+  "data": "34567890",
+  "states": "ATDDDAAFAAADDFDADDTFFFTFTFFFFTDDAFTAT",
+  "source": "Zint test suite (BSD-3-Clause): Verified manually against TEC-IT"
+ },
+ {
+  "type": "AUSREDIRECT",
+  "data": "98765432",
+  "states": "ATTFFDTFDDDADFADAAAFFDTAAAAFDFDAADFAT",
+  "source": "Zint test suite (BSD-3-Clause): Verified manually against TEC-IT"
+ },
+ {
+  "type": "MAILMARK_4S",
+  "data": "1100000000000XY11     ",
+  "states": "TTDTTATTDTAATTDTAATTDTAATTDTTDDAATAADDATAATDDFAFTDDTAADDDTAAFDFAFF",
+  "source": "Zint test suite (BSD-3-Clause): Verified manually against TEC-IT"
+ },
+ {
+  "type": "MAILMARK_4S",
+  "data": "21B2254800659JW5O9QA6Y",
+  "states": "DAATATTTADTAATTFADDDDTTFTFDDDDFFDFDAFTADDTFFTDDATADTTFATTDAFDTFDDA",
+  "source": "Zint test suite (BSD-3-Clause): Zint test_4s_encode_vector"
+ },
+ {
+  "type": "MAILMARK_4S",
+  "data": "11000000000000000XY11    ",
+  "states": "TTDTTATDDTTATTDTAATTDTAATDDTTATTDTTDATFTAATDDTAATDDTATATFAADDAATAATDDTAADFTFTA",
+  "source": "Zint test suite (BSD-3-Clause): Zint test_4s_encode_vector"
+ },
+ {
+  "type": "MAILMARK_4S",
+  "data": "41038422416563762EF61AH8T",
+  "states": "DTTFATTDDTATTTATFTDFFFTFDFDAFTTTADTTFDTFDDDTDFDDFTFAADTFDTDTDTFAATAFDDTAATTDTT",
+  "source": "Zint test suite (BSD-3-Clause): Zint test_4s_encode_vector"
+ },
+ {
+  "type": "MAILMARK_4S",
+  "data": "0100000000000AA000AA0A",
+  "states": "TFATTADAAATAFAFADFTAFATDTTDTTAAFTTFFTTDFTTFFTTAFADFDFAAFTDDFDADDAA",
+  "source": "Zint test suite (BSD-3-Clause): Zint test_4s_encode_vector"
+ },
+ {
+  "type": "MAILMARK_4S",
+  "data": "0100000000009JA500AA0A",
+  "states": "TAFTTDADATTFDTFDFDFDTAATADADTTTATTFTDDDDTATDATDFTFFATAFFAFADAFFTDT",
+  "source": "Zint test suite (BSD-3-Clause): Zint test_4s_encode_vector"
+ },
+ {
+  "type": "MAILMARK_4S",
+  "data": "1234567890123C1I2JQ3N ",
+  "states": "TTDTDFTFDTAAFFDATAATFDDTATTTFDFTDTTFDFTTTFAAFFTDTADDATDDDTFFATFFAF",
+  "source": "Zint test suite (BSD-3-Clause): Zint test_4s_encode_vector"
+ },
+ {
+  "type": "MAILMARK_4S",
+  "data": "2345678901234KM12JQ3N ",
+  "states": "TDTFAFADDATATATTAAFAFTFTDADFDTDAAADFFDTTDDTDDFATDDTFDATFDFTFFFDFTA",
+  "source": "Zint test suite (BSD-3-Clause): Zint test_4s_encode_vector"
+ },
+ {
+  "type": "MAILMARK_4S",
+  "data": "34A6789012345OV123JQ4U",
+  "states": "TDTTATADDATDADADATTAFATDAADAFTTTAAFDATFAFDDFDATFDTADDTFFAAFDDTTAAD",
+  "source": "Zint test suite (BSD-3-Clause): Zint test_4s_encode_vector"
+ },
+ {
+  "type": "MAILMARK_4S",
+  "data": "44E9999999999CI1K3JQ4U",
+  "states": "DADTFDATFAFAFFAADTDFTTAAFFAFFDFATFTFDDAAFDFDDFAFDTDTDDATTDATTAFDAD",
+  "source": "Zint test suite (BSD-3-Clause): Zint test_4s_encode_vector"
+ },
+ {
+  "type": "MAILMARK_4S",
+  "data": "0418070504030C12JQ3U  ",
+  "states": "FTAFFDAFTDDFTDTAFAADDDTADFTFAFFFATAAATFTDDDATFATFTTFTFFATADTDAAFTA",
+  "source": "Zint test suite (BSD-3-Clause): Zint test_4s_encode_vector"
+ },
+ {
+  "type": "MAILMARK_4S",
+  "data": "02D7543219876C123JQ4U ",
+  "states": "AFTFAFATFDDFFDTTDDFAFDFDAFFTFAAFTTDATDFATATFTDFTFTTTFFTTATDATFDFTA",
+  "source": "Zint test suite (BSD-3-Clause): Zint test_4s_encode_vector"
+ },
+ {
+  "type": "MAILMARK_4S",
+  "data": "01000000000000000AA000AA0A",
+  "states": "FDTTATTDDFFDATFAFDDTFFDDAATTTATTDTTADADDFDFTFAFAADTADDFDFTDTFTAFDDATDAFDFFATDT",
+  "source": "Zint test suite (BSD-3-Clause): Zint test_4s_encode_vector"
+ },
+ {
+  "type": "MAILMARK_4S",
+  "data": "01000000000000009JA500AA0A",
+  "states": "FDTDAADTDAAADDDAFADDDFDDAFAADDAADTTAAFFDDTFTTDDTDFDTTDDTTFFDTDTFAADTAFAAFFDFDF",
+  "source": "Zint test suite (BSD-3-Clause): Zint test_4s_encode_vector"
+ },
+ {
+  "type": "MAILMARK_4S",
+  "data": "01000000000000000C1I2JQ3N ",
+  "states": "TDTTDFTDDFDFFDTTAAATFFAADAFTTATTDTTAATFATDTTFAAFDFDAFTDADFTDFDFTFFFDADAFDDAATT",
+  "source": "Zint test suite (BSD-3-Clause): Zint test_4s_encode_vector"
+ },
+ {
+  "type": "MAILMARK_4S",
+  "data": "01777777777777777KM12JQ3N ",
+  "states": "AFFADATDDTATDFFAFAAADDTATFFDADDDADDAFFAFDDTADTTFDFATAFDDAAFFTTAFADTAAFTTDTFFTA",
+  "source": "Zint test suite (BSD-3-Clause): Zint test_4s_encode_vector"
+ },
+ {
+  "type": "MAILMARK_4S",
+  "data": "33C55555555555555OV123JQ4U",
+  "states": "FDTTFDDTDFFAAAADDFFDTFTFDDTADAAADATTFAFTTFDATTDDTDAFTAFTDDTTADDFFTAFDTDDTDTTAF",
+  "source": "Zint test suite (BSD-3-Clause): Zint test_4s_encode_vector"
+ },
+ {
+  "type": "MAILMARK_4S",
+  "data": "42944444444444444CI1K3JQ4U",
+  "states": "FTDDTTTTFAFFTATFTTFTDTFTFAADADTAFDADDTFDFDAFDFTTAFATFDFDTTFATFDFDAAAFTFTDFFTAF",
+  "source": "Zint test suite (BSD-3-Clause): Zint test_4s_encode_vector"
+ },
+ {
+  "type": "MAILMARK_4S",
+  "data": "31833333333333333C12JQ3U  ",
+  "states": "DTTAFFDATATFAADAFDFATFFTFFTTTADTTTDTAAATDDTFFDDFTAADTTDTFFFDAFTFAADFDDAFDFTAFF",
+  "source": "Zint test suite (BSD-3-Clause): Zint test_4s_encode_vector"
+ },
+ {
+  "type": "MAILMARK_4S",
+  "data": "22799999999999999C123JQ4U ",
+  "states": "DDATTDDATATTTAFDTAADATDDFFTFFDFFDTFAADDFAADFDFFTFFTFFDFDFTATATFDDFTFFFTFFTDDTF",
+  "source": "Zint test suite (BSD-3-Clause): Zint test_4s_encode_vector"
+ }
+]
