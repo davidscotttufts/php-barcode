@@ -18,7 +18,7 @@ Barcode::ean13('400638133393')->save('product.png');        // check digit added
 Barcode::gs1128('(01)09506000134352(17)251231(10)ABC123')->save('label.pdf');
 ```
 
-This started life in 2003 as a 150-line script for a blog post, ["How To Create Barcodes in PHP"](http://davidscotttufts.com/2009/03/31/how-to-create-barcodes-in-php/). Version 2 is a rewrite. The old `barcode.php?text=…` URLs and the `barcode()` function still work. See [Upgrading from 1.x](#upgrading-from-1x).
+This started life in 2003 as a 150-line script. Version 2 is a rewrite. The old `barcode.php?text=…` URLs and the `barcode()` function still work. See [Upgrading from 1.x](#upgrading-from-1x).
 
 ## Contents
 
