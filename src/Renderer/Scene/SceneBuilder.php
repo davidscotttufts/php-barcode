@@ -22,7 +22,10 @@ final class SceneBuilder
 {
     public function build(Symbol $symbol, RenderOptions $options): Scene
     {
-        $layout = $symbol->layout($options);
+        $caption = $options->caption !== null && trim($options->caption) !== '' ? $options->caption : null;
+        $layout = $caption === null
+            ? $symbol->layout($options)
+            : $symbol->layout($options->withoutText())->withCaption($caption, $options->textGap, $options->fontSize);
         $shapes = $this->isStyled($layout, $options)
             ? $this->styledShapes($layout, $options)
             : array_map(static fn(array $r): Shape => new Rect($r['x'], $r['y'], $r['width'], $r['height']), $layout->rects);

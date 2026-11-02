@@ -310,7 +310,7 @@ final class GdCanvas implements Canvas
         }
 
         $font = self::builtinFontFor($size);
-        $text = self::toLatin1($text);
+        $text = self::toAscii($text);
         $advance = imagefontwidth($font) * strlen($text);
         $fontHeight = imagefontheight($font);
         $offset = match ($anchor) {
@@ -358,16 +358,28 @@ final class GdCanvas implements Canvas
     }
 
     /**
-     * GD's built-in fonts are ISO-8859-2-ish single-byte fonts; transliterate what we can.
+     * GD's built-in bitmap fonts only cover ASCII reliably, so transliterate
+     * ("Grüße" → "Grusse", "·" → "."). Characters with no ASCII form become "?".
+     * For real glyphs, use SVG output or set a TrueType font.
      */
-    private static function toLatin1(string $text): string
+    private static function toAscii(string $text): string
     {
         if (preg_match('//u', $text) !== 1) {
-            return $text;
+            return (string) preg_replace('/[^\x20-\x7E]/', '?', $text);
         }
-        $converted = function_exists('iconv') ? @iconv('UTF-8', 'ISO-8859-1//TRANSLIT', $text) : false;
 
-        return $converted === false ? (string) preg_replace('/[^\x20-\x7E]/', '?', $text) : $converted;
+        $transliterator = class_exists(\Transliterator::class) ? \Transliterator::create('Any-Latin; Latin-ASCII') : null;
+
+        return (string) preg_replace_callback('/[^\x20-\x7E]/u', static function (array $match) use ($transliterator): string {
+            $ascii = $transliterator?->transliterate($match[0]);
+            if (!is_string($ascii) || $ascii === '' || preg_match('/^[\x20-\x7E]+$/', $ascii) !== 1) {
+                // iconv decorates some letters with accent marks (é → 'e on macOS); drop them.
+                $converted = function_exists('iconv') ? @iconv('UTF-8', 'ASCII//TRANSLIT', $match[0]) : false;
+                $ascii = $converted === false ? '' : trim($converted, "'\"^`~");
+            }
+
+            return $ascii !== '' && preg_match('/^[\x20-\x7E]+$/', $ascii) === 1 ? $ascii : '?';
+        }, $text);
     }
 
     private static function allocate(\GdImage $image, Color $color): int

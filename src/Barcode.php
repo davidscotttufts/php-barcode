@@ -246,6 +246,15 @@ final readonly class Barcode implements \Stringable
         return $this->withOptions($this->options->withText($show, $fontSize));
     }
 
+    /**
+     * Prints custom text under the barcode instead of the encoded data, e.g. a
+     * product name or "Scan to pay". Works with every type, including 2D codes.
+     */
+    public function withCaption(string $caption): self
+    {
+        return $this->withOptions($this->options->withCaption($caption));
+    }
+
     public function withoutText(): self
     {
         return $this->withOptions($this->options->withoutText());

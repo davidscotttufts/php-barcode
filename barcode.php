@@ -15,6 +15,7 @@ declare(strict_types=1);
  *   sizefactor   Module width in pixels                    (default 1)
  *   orientation  horizontal | vertical                     (default "horizontal")
  *   print        "true" to print the text under the bars   (default "false")
+ *   caption      Custom text to print under the barcode instead of the data
  *   format       png | svg | jpeg | gif | webp             (default "png")
  *   fg, bg       Hex colors such as 000 or ff0000          (default black on white)
  *
@@ -51,6 +52,14 @@ try {
         orientation: Orientation::fromName($param('orientation', 'horizontal')),
     );
     $options = $options->withColors($param('fg', '000'), $param('bg', 'fff'));
+
+    $caption = $param('caption', '');
+    if (strlen($caption) > MAX_TEXT_LENGTH) {
+        throw new InvalidArgumentException(sprintf('"caption" may be at most %d characters.', MAX_TEXT_LENGTH));
+    }
+    if ($caption !== '') {
+        $options = $options->withCaption($caption);
+    }
 
     $format = OutputFormat::fromName($param('format', 'png'));
     if ($format === OutputFormat::Text) {

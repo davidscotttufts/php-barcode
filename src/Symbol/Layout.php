@@ -48,6 +48,27 @@ final readonly class Layout
     ) {}
 
     /**
+     * A copy with one centered caption added below the drawing.
+     * Build the layout with text turned off first, so it isn't printed twice.
+     */
+    public function withCaption(string $caption, float $gap, float $fontSize): self
+    {
+        return new self(
+            width: $this->width,
+            height: $this->height + $gap + $fontSize * 1.25,
+            rects: $this->rects,
+            text: $caption,
+            textTop: $this->height + $gap,
+            fontSize: $fontSize,
+            modules: $this->modules,
+            finders: $this->finders,
+            symbolBox: $this->symbolBox,
+            polygons: $this->polygons,
+            annuli: $this->annuli,
+        );
+    }
+
+    /**
      * Every text item, with the single caption (if any) expanded into a positioned item.
      *
      * @return list<array{text: string, x: float, y: float, size: float, anchor: 'start'|'middle'|'end'}>

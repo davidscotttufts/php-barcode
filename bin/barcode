@@ -33,6 +33,7 @@ $usage = <<<USAGE
           --fg <hex>         Bar color (default 000).
           --bg <hex>         Background color (default fff).
           --vertical         Rotate 90° clockwise.
+          --caption <text>   Print this text under the barcode instead of the data.
           --no-text          Don't print the data under the bars.
       -h, --help             Show this help.
 
@@ -46,7 +47,7 @@ $usage = <<<USAGE
 // getopt() stops at the first positional argument, so options are parsed by hand
 // to allow them anywhere: `barcode code128 ABC --height 80`.
 $valueOptions = ['o' => 'output', 'output' => 'output', 'f' => 'format', 'format' => 'format',
-    'height' => 'height', 'module' => 'module', 'quiet' => 'quiet', 'fg' => 'fg', 'bg' => 'bg'];
+    'height' => 'height', 'module' => 'module', 'quiet' => 'quiet', 'fg' => 'fg', 'bg' => 'bg', 'caption' => 'caption'];
 $flagOptions = ['vertical' => 'vertical', 'no-text' => 'no-text', 'h' => 'help', 'help' => 'help'];
 
 $options = [];
@@ -101,6 +102,9 @@ try {
         orientation: isset($options['vertical']) ? Orientation::Vertical : Orientation::Horizontal,
     );
     $render = $render->withColors($opt('fg') ?? '000', $opt('bg') ?? 'fff');
+    if ($opt('caption') !== null) {
+        $render = $render->withCaption($opt('caption'));
+    }
 
     $barcode = Barcode::of($type, $data, $render);
     $output = $opt('output');
