@@ -1,9 +1,9 @@
 {
     "name": "davidscotttufts/php-barcode",
-    "description": "Generate Code 128, Code 39, Interleaved 2 of 5, Codabar, EAN-13, EAN-8 and UPC-A barcodes as SVG, PNG, JPEG, GIF, WebP or text.",
+    "description": "Generate 59 barcode types (QR, Data Matrix, Aztec, MaxiCode, PDF417, EAN/UPC, GS1-128, GS1 DataBar, Code 128, postal codes and more) as SVG, PNG, PDF, EPS or text. Pure PHP, GS1 validation, styled QR codes.",
     "type": "library",
     "license": "MIT",
-    "keywords": ["barcode", "code128", "code39", "ean13", "upc", "codabar", "itf", "svg", "png", "gd"],
+    "keywords": ["barcode", "qr code", "qrcode", "datamatrix", "pdf417", "aztec", "maxicode", "ean13", "upc", "gs1", "gs1-128", "databar", "code128", "code39", "postal", "svg", "png", "pdf"],
     "homepage": "https://github.com/davidscotttufts/php-barcode",
     "authors": [
         {
